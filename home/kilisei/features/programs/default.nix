@@ -1,4 +1,4 @@
-{pkgs,...}:{
+{
   imports = [
     ./browser
     ./communication
@@ -7,5 +7,6 @@
     ./git
     ./pika.nix
     ./monitoring.nix
+    ./ssh.nix
   ];
 }
