@@ -19,6 +19,8 @@
 
   users.users.kilisei = {
     isNormalUser = true;
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     extraGroups = [
       "wheel"
       "networkmanager"
