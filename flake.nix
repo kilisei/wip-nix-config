@@ -20,7 +20,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-      defaultUser = "kilisei";
       inherit (self) outputs;
     in
     {
