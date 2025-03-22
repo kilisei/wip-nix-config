@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../common
+    ../../modules/hosts/common/yubikey.nix
   ];
 
   system.stateVersion = "24.11";
