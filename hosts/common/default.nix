@@ -6,6 +6,21 @@
   ...
 }:
 {
+  nix =
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
+    {
+      settings = {
+        experimental-features = "nix-command flakes";
+        flake-registry = "";
+        nix-path = config.nix.nixPath;
+      };
+      channel.enable = false;
+      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    };
+
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -20,16 +35,19 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   environment.gnome.excludePackages = with pkgs; [
-    epiphany
-    evince
-    geary
-    gnome-characters
-    gnome-music
-    gnome-photos
-    gnome-terminal
-    gnome-tour
-    gnome-contacts
-    totem
+    epiphany # Web browser
+    evince # PDF viewer
+    geary # Email client
+    gnome-characters # Character map tool
+    gnome-music # Music player
+    gnome-photos # Photo manager
+    gnome-terminal # Terminal emulator
+    gnome-tour # GNOME introduction/tour
+    gnome-contacts # Contact manager
+    totem # Video player
+    gnome-maps # Maps application
+    file-roller # Archive manager
+    gnome-connections # Remote desktop client
   ];
 
   services = {
