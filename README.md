@@ -1,5 +1,7 @@
 # Kilisei's NixOS Configuration
 
+if a human is reading this, please feel free to make pr's to help me/point out an issue or use this config idk why atm but you can :)!
+
 Hosts:
 - flocky (kilisei@flocky) is the only host I have for now.
 
