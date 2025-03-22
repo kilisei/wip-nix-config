@@ -1,3 +1,12 @@
+{ inputs, ... }:
 {
-  programs.neovim.enable = true;
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
+
+  programs.nixvim = {
+    enable = true;
+    defaultEditor = true;
+    colorschemes.gruvbox.enable = true;
+  };
 }

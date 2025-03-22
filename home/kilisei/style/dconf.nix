@@ -1,4 +1,9 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    gnomeExtensions.blur-my-shell
+  ];
+
   dconf.settings = {
     "org/gnome/desktop/background" = {
       "picture-uri" = "file://${../assets/wallpaper.jpg}";

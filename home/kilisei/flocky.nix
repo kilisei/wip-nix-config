@@ -5,6 +5,7 @@
   imports = [
     ./features
     ./style
+    ./style/nix.nix
   ];
 
   home = {
