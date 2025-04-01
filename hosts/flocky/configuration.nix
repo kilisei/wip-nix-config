@@ -13,11 +13,6 @@
 
   system.stateVersion = "24.11";
 
-  networking = {
-    hostName = "flocky";
-    networkmanager.enable = true;
-  };
-
   virtualisation.docker = {
     enable = true;
     rootless = {
