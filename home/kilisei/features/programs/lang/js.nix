@@ -4,7 +4,5 @@
     nodejs_22
     corepack_22
     bun
-
-    podman
   ];
 }

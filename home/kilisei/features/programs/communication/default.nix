@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     discord
-    onlyoffice-desktopeditors
-    traceroute
+    teams-for-linux
   ];
 }

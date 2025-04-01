@@ -1,10 +1,12 @@
 { pkgs, ... }:
 {
-
   environment.systemPackages = with pkgs; [
     yubioath-flutter
     pam_u2f
     yubikey-manager
+    yubikey-personalization
+    yubikey-personalization-gui
+    yubico-piv-tool
     yubikey-touch-detector
   ];
 
@@ -31,7 +33,7 @@
       login.u2fAuth = true;
       sudo = {
         u2fAuth = true;
-        sshAgentAuth = true;
+        # sshAgentAuth = true;
       };
     };
   };

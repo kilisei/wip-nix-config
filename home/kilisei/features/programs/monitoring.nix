@@ -5,6 +5,5 @@
     btop
     wrk
     fastfetch
-    teams-for-linux
   ];
 }

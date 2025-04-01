@@ -13,14 +13,6 @@
 
   system.stateVersion = "24.11";
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
   users.users.kilisei = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -28,8 +20,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "docker"
     ];
-    initialPassword = "kilisei"; # TODO: Manage with sops
+    initialPassword = "kilisei";
   };
 }
