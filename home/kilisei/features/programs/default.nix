@@ -8,5 +8,6 @@
     ./pika.nix
     ./monitoring.nix
     ./ssh.nix
+    ./misc.nix
   ];
 }
