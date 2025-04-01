@@ -5,6 +5,7 @@
     yubioath-flutter
     pam_u2f
     yubikey-manager
+    yubikey-touch-detector
   ];
 
   services = {
@@ -21,6 +22,9 @@
     sshAgentAuth.enable = true;
     u2f = {
       enable = true;
+      settings = {
+        cue = true;
+      };
     };
 
     services = {

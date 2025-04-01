@@ -6,6 +6,7 @@
     ./features
     ./style
     ./style/nix.nix
+    ./features/programs/lang/js.nix
   ];
 
   home = {
