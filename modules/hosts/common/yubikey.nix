@@ -13,7 +13,6 @@
       yubikey-manager
       yubikey-personalization
       yubikey-personalization-gui
-      yubico-piv-tool
       yubioath-flutter
     ];
 
@@ -29,7 +28,6 @@
       enable = true;
       settings = {
         cue = true;
-        pinverification = 1;
       };
     };
   };
