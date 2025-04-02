@@ -31,6 +31,7 @@
   # kilisei.teams.enable = true;
 
   kilisei.git.enable = true;
+  kilisei.lang.js.enable = true;
 
   kilisei.onlyoffice.enable = true;
   kilisei.pika-backup.enable = true;

@@ -1,38 +1,35 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    yubioath-flutter
-    pam_u2f
-    yubikey-manager
-    yubikey-personalization
-    yubikey-personalization-gui
-    yubico-piv-tool
-    yubikey-touch-detector
-  ];
-
-  services = {
-    pcscd = {
-      enable = true;
-      plugins = [pkgs.ccid];
-    };
-    udev.packages = [pkgs.yubikey-personalization];
-
-    yubikey-agent.enable = true;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    kilisei.yubikey.enable = lib.mkEnableOption "";
   };
 
-  security.pam = {
-    sshAgentAuth.enable = true;
-    u2f = {
+  config = lib.mkIf config.kilisei.yubikey.enable {
+    environment.systemPackages = with pkgs; [
+      yubikey-manager
+      yubikey-personalization
+      yubikey-personalization-gui
+      yubico-piv-tool
+      yubioath-flutter
+    ];
+
+    services = {
+      pcscd = {
+        enable = true;
+        plugins = [pkgs.yubikey-personalization];
+      };
+      udev.packages = [pkgs.yubikey-personalization];
+    };
+
+    security.pam.u2f = {
       enable = true;
       settings = {
         cue = true;
-      };
-    };
-
-    services = {
-      login.u2fAuth = true;
-      sudo = {
-        u2fAuth = true;
-        # sshAgentAuth = true;
+        pinverification = 1;
       };
     };
   };
