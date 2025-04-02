@@ -4,10 +4,11 @@
     ./communication
     ./terminal
     ./editor
-    ./git
+    ./lang
+
+    ./git.nix
     ./pika.nix
     ./monitoring.nix
-    ./ssh.nix
-    ./misc.nix
+    ./onlyoffice.nix
   ];
 }

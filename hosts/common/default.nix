@@ -4,13 +4,16 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ../../modules/hosts/common/i18n.nix
-    ../../modules/hosts/common/flakePath.nix
+    ../../modules/hosts/common/nix.nix
     ../../modules/hosts/common/gnome/debloat.nix
     ../../modules/hosts/common/networkmanager.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    alejandra
   ];
 
   boot.loader = {

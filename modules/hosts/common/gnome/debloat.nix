@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.gnome.excludePackages = with pkgs; [
     epiphany # Web browser
     evince # PDF viewer

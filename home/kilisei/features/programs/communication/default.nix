@@ -1,7 +1,6 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    discord
-    teams-for-linux
+  imports = [
+    ./teams.nix
+    ./discord.nix
   ];
 }
